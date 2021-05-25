@@ -295,7 +295,7 @@ async function getRoleInfo() {
         },
         {
             type: "list",
-            message: "Which department uses this role?",
+            message: "What department uses this role?",
             name: "departmentName",
             choices: [
                 
@@ -312,7 +312,7 @@ async function getUpdateEmployeeRoleInfo() {
         .prompt([
             {
                 type: "list",
-                message: "Which employee do you want to update?",
+                message: "Which employee do you need to update?",
                 name: "employeeName",
                 choices: [
                     
@@ -398,7 +398,7 @@ async function main() {
             }
 
             default:
-                console.log(`Internal warning. Shouldn't get here. action was ${prompt.action}`);
+                console.log(`Invalid action was ${prompt.action}`);
         }
     }
 }
