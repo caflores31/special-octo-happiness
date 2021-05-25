@@ -2,11 +2,15 @@
 const inquirer = require("inquirer");
 let Database = require("./async-db");
 let cTable = require("console.table");
+
 // Create the connection database //
 const db = new Database({
     host: "localhost",
+    // port if not 3306 // 
     port: 3306,
+    // username // 
     user: "root",
+    // db local password //
     password: "wednesday",
     database: "cms"
   });
@@ -16,7 +20,6 @@ async function getManagerNames() {
     let query = "SELECT * FROM employee WHERE manager_id IS NULL";
 
     const rows = await db.query(query);
-    //console.log("number of rows returned " + rows.length);
     let employeeNames = [];
     for(const employee of rows) {
         employeeNames.push(employee.first_name + " " + employee.last_name);
@@ -194,7 +197,7 @@ async function addRole(roleInfo) {
 }
 
 // db end call // 
-
+// Prompt with questions // 
 async function mainPrompt() {
     return inquirer
         .prompt([
@@ -203,15 +206,15 @@ async function mainPrompt() {
                 message: "What would you like to do?",
                 name: "action",
                 choices: [
-                  "Add department",
-                  "Add employee",
-                  "Add role",
-                  "Remove employee",
-                  "Update employee role",
-                  "View all departments",
-                  "View all employees",
-                  "View all employees by department",
-                  "View all roles",
+                  "Add Department",
+                  "Add Employee",
+                  "Add Role",
+                  "Remove Employee",
+                  "Update Employee role",
+                  "View All Departments",
+                  "View All Employees",
+                  "View All Employees by Department",
+                  "View All Roles",
                   "Exit"
                 ]
             }
