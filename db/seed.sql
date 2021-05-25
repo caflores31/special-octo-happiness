@@ -2,7 +2,7 @@ USE cms;
 
 INSERT into department (name) VALUES ("IT");
 INSERT into department (name) VALUES ("Cloud Team");
-INSERT into department (name) VALUES ("Joe");
+INSERT into department (name) VALUES ("Jedi");
 INSERT into department (name) VALUES ("HR");
 
 INSERT into role (title, salary, department_id) VALUES ("Cloud Manager", 100000, 1);
@@ -24,10 +24,10 @@ INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Kylo"
 INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Ben", "Solo", 4, 3);
 INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Qui-Gon", "Jinn", 4, 3);
 
-INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Joe", "Rey", 5, 3);
-INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Joe", "Mace", 6, 5);
-INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Joe", "Bane", 7, 5);
-INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Joe", "Kryze", 7, 5);
-INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Joe", "Vader", 8, 5);
+INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Jedi", "Rey", 5, 3);
+INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Jedi", "Mace", 6, 5);
+INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Jedi", "Bane", 7, 5);
+INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Jedi", "Kryze", 7, 5);
+INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Jedi", "Vader", 8, 5);
 
 INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("Padme", "Amidala", 9, 3);

@@ -14,11 +14,9 @@ const db = new Database({
     password: "wednesday",
     database: "cms"
   });
-  
 
 async function getManagerNames() {
     let query = "SELECT * FROM employee WHERE manager_id IS NULL";
-
     const rows = await db.query(query);
     let employeeNames = [];
     for(const employee of rows) {
@@ -39,11 +37,10 @@ async function getRoles() {
 
     return roles;
 }
-
+// Department Names //
 async function getDepartmentNames() {
     let query = "SELECT name FROM department";
     const rows = await db.query(query);
-   
 
     let departments = [];
     for(const row of rows) {
@@ -61,7 +58,7 @@ async function getDepartmentId(departmentName) {
     return rows[0].id;
 }
 
-// 
+// role with IDs //
 async function getRoleId(roleName) {
     let query = "SELECT * FROM role WHERE role.title=?";
     let args = [roleName];
@@ -69,11 +66,10 @@ async function getRoleId(roleName) {
     return rows[0].id;
 }
 
-// 
+// find employee ID of the manager //
 async function getEmployeeId(fullName) {
-    // 
+    // first name and last name //
     let employee = getFirstAndLastName(fullName);
-
     let query = 'SELECT id FROM employee WHERE employee.first_name=? AND employee.last_name=?';
     let args=[employee[0], employee[1]];
     const rows = await db.query(query, args);
@@ -82,7 +78,6 @@ async function getEmployeeId(fullName) {
 
 async function getEmployeeNames() {
     let query = "SELECT * FROM employee";
-
     const rows = await db.query(query);
     let employeeNames = [];
     for(const employee of rows) {
@@ -93,7 +88,6 @@ async function getEmployeeNames() {
 
 async function viewAllRoles() {
     console.log("");
-    // SELECT * FROM role;
     let query = "SELECT * FROM role";
     const rows = await db.query(query);
     console.table(rows);
@@ -109,8 +103,6 @@ async function viewAllDepartments() {
 
 async function viewAllEmployees() {
     console.log("");
-
-    // SELECT * FROM employee;
     let query = "SELECT * FROM employee";
     const rows = await db.query(query);
     console.table(rows);
