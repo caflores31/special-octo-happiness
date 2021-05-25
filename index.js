@@ -99,9 +99,8 @@ async function viewAllRoles() {
     console.table(rows);
     return rows;
 }
-// View all Departments
+// View all Departments //
 async function viewAllDepartments() {
-    // SELECT * from department;
 
     let query = "SELECT * FROM department";
     const rows = await db.query(query);
@@ -116,7 +115,7 @@ async function viewAllEmployees() {
     const rows = await db.query(query);
     console.table(rows);
 }
-// View all Employees by Department
+// View all Employees by Department //
 async function viewAllEmployeesByDepartment() {
     
     console.log("");
@@ -125,14 +124,10 @@ async function viewAllEmployeesByDepartment() {
     console.table(rows);
 }
 
-// Will return an array with only two elements in it: 
-// [first_name, last_name]
+
+//  return array [first_name, last_name] //
 function getFirstAndLastName( fullName ) {
-    // If a person has a space in their first name, such as "Mary Kay", 
-    // then first_name needs to ignore that first space. 
-    // Surnames generally do not have spaces in them so count the number
-    // of elements in the array after the split and merge all before the last
-    // element.
+  
     let employee = fullName.split(" ");
     if(employee.length == 2) {
         return employee;
@@ -343,13 +338,13 @@ async function main() {
         const prompt = await mainPrompt();
 
         switch(prompt.action) {
-            case 'Add department': {
+            case 'Add Department': {
                 const newDepartmentName = await getDepartmentInfo();
                 await addDepartment(newDepartmentName);
                 break;
             }
 
-            case 'Add employee': {
+            case 'Add Employee': {
                 const newEmployee = await getAddEmployeeInfo();
                 console.log("add an employee");
                 console.log(newEmployee);
@@ -357,31 +352,31 @@ async function main() {
                 break;
             }
 
-            case 'Add role': {
+            case 'Add Role': {
                 const newRole = await getRoleInfo();
                 console.log("add a role");
                 await addRole(newRole);
                 break;
             }
 
-            case 'Remove employee': {
+            case 'Remove Employee': {
                 const employee = await getRemoveEmployeeInfo();
                 await removeEmployee(employee);
                 break;
             }
             
-            case 'Update employee role': {
+            case 'Update Employee Role': {
                 const employee = await getUpdateEmployeeRoleInfo();
                 await updateEmployeeRole(employee);
                 break;
             }
 
-            case 'View all departments': {
+            case 'View All Departments': {
                 await viewAllDepartments();
                 break;
             }
 
-            case 'View all employees': {
+            case 'View All Employees': {
                 await viewAllEmployees();
                 break;
             }
